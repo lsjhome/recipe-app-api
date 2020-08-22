@@ -1,0 +1,12 @@
+version: "3" # version of docker compose version
+
+services:
+  app: # name of service
+    build:
+      context: .
+    ports:
+      - "8000:8000" #host:docker image
+    volumes:
+      - ./app:/app #host:/docker image
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
